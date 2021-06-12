@@ -14,6 +14,10 @@ public class Record {
         this.titles = titles;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getLength(){
         int length = 0;
         for(int i = 0; i < titles.size(); i++){
@@ -22,8 +26,8 @@ public class Record {
         return length;
     }
 
-    public String getTitle(int id){
-        return titles.get(id).getTitle();
+    public Title getTitle(int id){
+        return titles.get(id);
     }
 
 }
