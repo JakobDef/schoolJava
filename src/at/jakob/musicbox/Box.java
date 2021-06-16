@@ -1,5 +1,7 @@
 package at.jakob.musicbox;
 
+import at.jakob.musicbox.gui.exceptions.MagazineFullException;
+
 public class Box {
     private Player player;
     private Magazine magazine;
@@ -13,6 +15,7 @@ public class Box {
     public void loadRecord(Record record){
         if(this.magazine.searchRecord(record.getName()) != null){
             this.loaded = record;
+            // log4j
             System.out.println("Record loaded");
         }
         else{
@@ -38,5 +41,11 @@ public class Box {
             System.out.println("No Record loaded!");
         }
     }
+
+    public void addRecord(Record record) throws MagazineFullException{
+        this.magazine.addRecord(record);
+    }
+
+   
 
 }
