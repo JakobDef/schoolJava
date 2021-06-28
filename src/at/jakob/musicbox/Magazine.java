@@ -1,16 +1,24 @@
 package at.jakob.musicbox;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import at.jakob.musicbox.gui.exceptions.MagazineFullException;
 
 public class Magazine {
     private List<Record> records = new ArrayList<>();
 
-    public void addRecord(Record rec){
-        if(this.records.size() < 50){
+    public void addRecord(Record rec) throws MagazineFullException{
+        if(this.records.size() < 3){
             this.records.add(rec);
+        } else{
+            throw new MagazineFullException("Magazin ist voll!");
         }
-        else System.out.println("Magazine is full!");
+      
+       
     }
 
     public void removeRecord(Record rec){
@@ -38,6 +46,10 @@ public class Magazine {
             }
         }
         return null;
+    }
+
+    public List<Record> getRecords() {
+        return records;
     }
 
 }
