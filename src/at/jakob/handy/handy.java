@@ -1,5 +1,7 @@
 package at.jakob.handy;
 
+import java.util.Vector;
+
 public class handy {
     private String color;
     private sim sim;
@@ -23,6 +25,10 @@ public class handy {
 
     public int getFreeSpace(){
         return this.sd.getFreeSpace();
+    }
+
+    public Vector<file> getAllImages(){
+        return this.sd.getAllImages();
     }
 
 }
